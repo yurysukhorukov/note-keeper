@@ -15,7 +15,7 @@ public class NotesRepository {
 
     public Map<String, String> getNotes() {
         return jdbcTemplate.query("SELECT date_of_creation, note FROM notes", resultSet -> {
-            HashMap<String, String> mapResult = new HashMap<>();
+            Map<String, String> mapResult = new HashMap<>();
             while (resultSet.next()) {
                 mapResult.put(resultSet.getString("date_of_creation"), resultSet.getString("note"));
             }
